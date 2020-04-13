@@ -1,0 +1,93 @@
+<html>
+    <script>
+ console.log('Please type game(); to begin.')
+ function computerPlay() {
+     let computerMove = Math.floor((Math.random() * 3) + 1);
+if (computerMove == 1) {
+    return "rock";
+} else if (computerMove == 2) {
+    return "paper";
+} else if (computerMove==3) {
+    return "scissors";
+}
+ }
+
+ function playerPlay() {
+ let userMove = prompt('Rock, Paper, or Scissors?').toLowerCase();
+ return userMove;
+ }
+ function playGame(playerPlay, computerPlay) {
+     let result;
+
+     switch (true) {
+         case computerPlay === 'rock' && playerPlay === 'scissors':
+         result = 'lose';
+         console.log('You lose! Rock beats scissors.');
+         break;
+         case computerPlay === 'paper' && playerPlay === 'rock':
+         result = 'lose';
+         console.log("Paper covers rock. You lose");
+         break;
+         case computerPlay === 'scissors' && playerPlay === 'paper':
+         result = 'lose';
+         console.log('Scissors cuts paper, Loser.');
+         break;
+         case computerPlay === 'rock' && playerPlay === 'paper':
+         result = 'win';
+         console.log('You covered their rock. You win!');
+         break;
+         case computerPlay === 'paper' && playerPlay === 'scissors':
+         result = 'win';
+         console.log('Their paper is cut in twain. Winner!');
+         break;
+         case computerPlay === 'scissors' && playerPlay === 'rock':
+         result = 'win';
+         console.log('You decimated their scissors. Victory!');
+         break;
+         case computerPlay === playerPlay:
+         result = 'draw'
+         console.log("Great minds think a like. It's a draw");
+         break;
+     }
+     return result;
+ }
+function game() {
+let rounds = 5;
+let roundResult;
+let finalResult;
+let computerScore = 0;
+let userScore = 0;
+let tieScore = 0;
+
+for(let i=1; i <= rounds; i++) {
+    roundResult = playGame(computerPlay(), playerPlay());
+    } 
+
+    if (roundResult === 'win') {
+        userScore++;
+        }else if (roundResult === 'lose'){
+            computerScore++;
+        }else if (roundResult=== 'draw'){
+            tieScore++;
+        }
+
+        if(computerScore>userScore){
+            finalResult = 'You Lose';
+        }else if (computerScore<userScore){
+            finalResult  =' You Won!'
+        }else if (computerScore ==  userScore){
+            finalResult = 'Tie Game!!';
+        }
+        finalScore =
+        `FINAL SCORE
+        ______________
+        You Won ${userScore} times!
+        You lost ${computerScore} times!
+        You tied ${tieScore} times!
+        ${finalResult}
+        `
+
+        return console.log(finalScore);
+}
+    </script>
+</html>
